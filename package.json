@@ -1,5 +1,5 @@
 {
-  "name": "library-template",
+  "name": {{libraryName}},
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
