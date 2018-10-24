@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "module": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "#": "清除文件",
@@ -14,8 +15,13 @@
     "####": "开发调试",
     "dev": "webpack-dev-server --mode development --progress"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["崔海峰"],
+  "files": [
+    "src",
+    "dist",
+    "test"
+  ],
+  "author": "崔海峰",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.1.5",
