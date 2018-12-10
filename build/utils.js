@@ -1,5 +1,6 @@
 const fs = require('fs');
 const bluebird = require('bluebird').promisifyAll(fs);
+const Handlebars = require('handlebars');
 
 
 //? 自定义模板编译
@@ -18,6 +19,19 @@ exports.syncFile = (answers, file) => {
       return exports.compile(answers, str)
     })
     .then(str => fs.writeFileAsync((file), str, 'utf8'))
+    .then(() => answers)
+}
+
+//? 模板解析文件
+exports.transformFile = (answers, file, tem) => {
+  bluebird.readFileAsync((tem || file), 'utf8')
+    .then(str => {
+      return Handlebars.compile(str)(answers)
+    })
+    .then(str => {
+      fs.closeSync(fs.openSync(file, 'a'))
+      return fs.writeFileAsync((file), str, 'utf8')
+    })
     .then(() => answers)
 }
 

@@ -7,6 +7,12 @@ const CWD = process.cwd();
 const BRIDGE_DOC_PATH = path.resolve(CWD, 'docs/config/bridge.doc.js');
 //! 源码文件
 const CODE_PATH = path.resolve(CWD, 'src/main.js');
+//! markdown目录
+const MD_LIB = path.resolve(CWD, 'docs/md');
+//! markdown模板文件
+const MD_TPL_PATH = path.resolve(CWD, 'build/template/bridge.md');
+//! 路由文件
+const ROUTER_PATH = path.resolve(CWD, 'docs/router.js');
 
 async function lanuch () {
   let result = await prompt([
@@ -61,10 +67,16 @@ async function lanuch () {
       }
     }
   ])
+  let TplBridgeNameUpper = answers.bridgeName.replace(/^([a-z])/, (result, match) => (match && match.toUpperCase() || ''));
+  result = Object.assign(result, { TplAnnotationStart: '/*', TplAnnotationEnd: '*/', TplBridgeNameUpper })
   let syncDOC = utils.syncFile(result, BRIDGE_DOC_PATH)
   let syncCODE = utils.syncFile(result, CODE_PATH)
+  let syncROUTER = utils.syncFile(result, ROUTER_PATH)
+  let transformMd = utils.transformFile(result, `${MD_LIB}/${result.bridgeName}.md`, MD_TPL_PATH)
   let answers = await syncDOC
   let answerss = await syncCODE
+  let answersss = await syncROUTER
+  let mdStr = await transformMd
 }
 
 lanuch()
