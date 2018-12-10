@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 let loadTest = () => import(/* webpackChunkName: "md.test" */'./md/test.md')
 let loadResult = () => import(/* webpackChunkName: "md.result" */'./md/result.md')
+let loadBlock = () => import(/* webpackChunkName: "md.block" */'./md/block.md')
 /* @init<%
 let load${TplBridgeNameUpper} = () => import(${TplAnnotationStart} webpackChunkName: "md.${bridgeName}" ${TplAnnotationEnd}'./md/${bridgeName}.md')%> */
 
@@ -24,6 +25,15 @@ let routes = [
     meta: {
       keepAlive: true,
       title: '设置原生title'
+    }
+  },
+  {
+    path: '/doc/block',
+    name: 'Block',
+    component: loadBlock,
+    meta: {
+      keepAlive: true,
+      title: '模块规范'
     }
   },
   /* @init<%

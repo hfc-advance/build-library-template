@@ -6,7 +6,7 @@
       </div>
       <!-- 1px border -->
       <div class="menu-split-line"></div>
-      <div class="p-20">
+      <div>
         <router-view class="qk-markdown"></router-view>
       </div>
     </div>
@@ -37,6 +37,4 @@ export default {
   bottom 20px
   width 1px
   background-color #ECECEC
-.p-20
-  padding 20px
 </style>

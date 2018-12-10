@@ -20,6 +20,15 @@ export const docs = [
       bridgeVersionAndroid: '1.1.1',
       bridgeVersionIOS: '2.2.2'
     },
+    {
+      bridgeName: 'block',
+      bridgeEffect: '模块规范',
+      bridgeH5Man: '崔海峰',
+      bridgeNativeAndroidMan: '崔海峰',
+      bridgeNativeIOSMan: '崔海峰',
+      bridgeVersionAndroid: '1.1.1',
+      bridgeVersionIOS: '3.4.5'
+    },
   /* @init<%
     {
       bridgeName: '${bridgeName}',
