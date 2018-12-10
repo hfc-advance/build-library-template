@@ -67,7 +67,7 @@ async function lanuch () {
       }
     }
   ])
-  let TplBridgeNameUpper = answers.bridgeName.replace(/^([a-z])/, (result, match) => (match && match.toUpperCase() || ''));
+  let TplBridgeNameUpper = result.bridgeName.replace(/^([a-z])/, (result, match) => (match && match.toUpperCase() || ''));
   result = Object.assign(result, { TplAnnotationStart: '/*', TplAnnotationEnd: '*/', TplBridgeNameUpper })
   let syncDOC = utils.syncFile(result, BRIDGE_DOC_PATH)
   let syncCODE = utils.syncFile(result, CODE_PATH)

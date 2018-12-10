@@ -1,10 +1,14 @@
 <template>
   <div class="content-box">
-    <div class="flex bg-f">
+    <div class="flex bg-f relative-view">
       <div class="menu-wrapper">
-        <menu></menu>
+        <Menu></Menu>
       </div>
-      <router-view></router-view>
+      <!-- 1px border -->
+      <div class="menu-split-line"></div>
+      <div class="p-20">
+        <router-view class="qk-markdown"></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -12,10 +16,10 @@
 <script>
 import Menu from './components/layout/menu.vue'
 export default {
-  name: 'APP',
   components: {
     Menu
-  }
+  },
+  name: 'APP'
 }
 </script>
 
@@ -23,7 +27,16 @@ export default {
 .content-box
   padding 50px
 .menu-wrapper
-  width 500px
-  min-width 500px
+  width 200px
+  min-width 200px
   overflow hidden
+.menu-split-line
+  position absolute
+  left 200px
+  top 20px
+  bottom 20px
+  width 1px
+  background-color #ECECEC
+.p-20
+  padding 20px
 </style>

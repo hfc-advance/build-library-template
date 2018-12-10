@@ -19,15 +19,25 @@ let createCssLoader = (type = 'css', options = {}) => {
   let currentLoaders = [];
   if (type === 'stylus' || type === 'styl') {
     currentLoaders = [
-      'stylus-loader'
+      'stylus-loader',
+      {
+        loader: 'style-resources-loader',
+        options: {
+          patterns: baseStyle ? [baseStyle] : []
+        }
+      }
     ]
-    }
-    return [
-      'cache-loader',
-      'style-loader',
-      ...defaultCssLoader,
-      ...currentLoaders
+  } else if (type === 'sass' || type === 'scss') {
+    currentLoaders = [
+      'scss-loader'
     ]
+  }
+  return [
+    'cache-loader',
+    'style-loader',
+    ...defaultCssLoader,
+    ...currentLoaders
+  ]
 };
 
 module.exports = {

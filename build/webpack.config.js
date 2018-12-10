@@ -10,7 +10,7 @@ const eslintFrienylyFormate = require("eslint-friendly-formatter");
 const loader = require("./loader.js");
 const vueMarkdownConfig = require('./config.js').vueMarkdown
 let resolve = (url) => path.resolve(__dirname, url)
-let cssLoader = ['css', 'styl'].map(item => {
+let cssLoader = ['css', 'styl', 'scss'].map(item => {
   return {
     test: new RegExp(`\.${item}$`),
     use: loader.createCssLoader(item, {})

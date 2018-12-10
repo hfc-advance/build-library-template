@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './app.vue'
 import router from './router.js'
-import('./base.styl')
-import('../node_modules/highlight.js/styles/atom-one-light.css')
+import('./components/assets/style/base.styl')
+import('./components/assets/style/markdown.styl')
 
 new Vue({
   id: 'app',
