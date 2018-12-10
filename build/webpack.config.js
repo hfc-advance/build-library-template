@@ -8,6 +8,7 @@ const errorOverlayWebpackPlugin = require("error-overlay-webpack-plugin");
 const webpackbar = require("webpackbar");
 const eslintFrienylyFormate = require("eslint-friendly-formatter");
 const loader = require("./loader.js");
+const vueMarkdownConfig = require('./config.js').vueMarkdown
 let resolve = (url) => path.resolve(__dirname, url)
 let cssLoader = ['css', 'styl'].map(item => {
   return {
@@ -20,12 +21,12 @@ module.exports = {
   mode: 'development',
   cache: true,
   entry: {
-    index: resolve('./test/index.js')
+    index: resolve('../docs/index.js')
   },
   output: {
-    path: resolve('./server'),
+    path: resolve('../server'),
     filename: '[name][hash:6].js',
-    chunkFilename: '[nams].async.[hash:6].js'
+    chunkFilename: '[name].async.[hash:6].js'
   },
   module: {
     rules: [
@@ -41,7 +42,7 @@ module.exports = {
             }
           }
         ],
-        include: [resolve('./src/'), resolve('./test/')]
+        include: [resolve('../src/'), resolve('../docs/')]
       },
       {
         test: /\.vue$/,
@@ -65,7 +66,16 @@ module.exports = {
             }
           },
         ],
-        include: [resolve('./src/'), resolve('./test/')]
+        include: [resolve('../src/'), resolve('../docs/')]
+      },
+      {
+        test: /\.md$/,
+        loader: [
+          {
+            loader: 'vue-markdown-loader',
+            options: vueMarkdownConfig
+          }
+        ]
       },
       {
         test: /\.js$/,
@@ -78,7 +88,7 @@ module.exports = {
             }
           }
         ],
-       include: [resolve('./src'), resolve('./test')]
+       include: [resolve('../src'), resolve('../docs')]
       },
       {
         test: /\.(png|gif|jpg|jpeg|webp|svg)$/,
@@ -98,8 +108,8 @@ module.exports = {
   plugins: [
     new htmlPlugin({
       chunksSortMode: 'none',
-      template: resolve('./test/test.html'),
-      filename: 'test.html',
+      template: resolve('../docs/index.html'),
+      filename: 'index.html',
       inject: true
     }),
     new friendlyErrorPlugin({
@@ -138,7 +148,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': resolve("./src"),
+      '@': resolve("../src"),
       'vue': 'vue/dist/vue.esm.js'
     }
   }

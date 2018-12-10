@@ -1,21 +1,19 @@
 {
-  "name": "{{libraryName}}",
+  "name": "qkJsbridge",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "module": "index.js",
+  "main": "dist/qkJsbridge.min.js",
+  "module": "dist/qkJsbridge.esm.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "#": "清除文件",
-    "clean": "rimraf dist",
-    "##": "生成开发时可以调试的library（带有sourcemap）",
-    "release:dev": "npm run clean && cross-env NODE_ENV=development rollup -w -c rollup.config.js",
-    "###": "生成npm包",
-    "release:prod": "npm run clean && cross-env NODE_ENV=production rollup -c rollup.config.js",
-    "####": "开发调试",
-    "dev": "webpack-dev-server --mode development --progress"
+    "create:bridge": "node ./build/create-bridge.js",
+    "build:dev": "npm run clean && cross-env NODE_ENV=development rollup -w -c rollup.config.js",
+    "build": "npm run clean && cross-env NODE_ENV=production rollup -c ./build/rollup.config.js",
+    "dev": "webpack-dev-server --mode development --config build/webpack.config.js --progress",
+    "clean": "rimraf dist"
   },
-  "keywords": ["崔海峰"],
+  "keywords": [
+    "崔海峰"
+  ],
   "files": [
     "src",
     "dist",
@@ -38,8 +36,10 @@
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
+    "bluebird": "^3.5.3",
     "cache-loader": "^1.2.2",
     "chalk": "^2.4.1",
+    "cheerio": "^1.0.0-rc.2",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "del": "^3.0.0",
@@ -57,6 +57,8 @@
     "file-loader": "^2.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
+    "inquirer": "^6.2.1",
+    "markdown-it-container": "^2.0.0",
     "postcss-import": "^12.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-px-to-viewport-c": "0.0.4",
@@ -78,6 +80,7 @@
     "uglify-es": "^3.3.9",
     "url-loader": "^1.1.1",
     "vue-loader": "^14.2.3",
+    "vue-markdown-loader": "^2.4.1",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.19.1",
@@ -86,6 +89,7 @@
     "webpackbar": "^2.6.3"
   },
   "dependencies": {
+    "highlight.js": "^9.13.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1"
   }

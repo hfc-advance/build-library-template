@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="test">小崔2</div>
+    <router-view></router-view>
   </div>
 </template>
 

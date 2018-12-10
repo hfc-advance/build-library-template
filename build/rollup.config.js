@@ -1,5 +1,5 @@
 
-import { name, version, author } from './package.json';
+import { name, version, author } from '../package.json';
 import alias from 'rollup-plugin-alias';
 import { eslint } from 'rollup-plugin-eslint';
 import eslintFormate from 'eslint-friendly-formatter';
@@ -84,7 +84,7 @@ let plugins = [
 ]
 //? 配置文件
 let arr = [{
-  input: './src/main.js',
+  input: 'src/main.js',
   output,
   plugins
 }]
@@ -94,7 +94,7 @@ if (isProd) {
   plugins.push(librarySize);
   //! 输入min资源包
   arr.push({
-    input: './src/main.js',
+    input: 'src/main.js',
     output: [
       //? umd格式
       {

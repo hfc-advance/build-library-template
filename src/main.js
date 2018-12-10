@@ -1,5 +1,6 @@
-
-let name = process.env.NODE_ENV
-export default {
-  name
+/* @init<%
+//? ${bridgeH5Man}
+//? ${bridgeEffect}
+export function ${bridgeName} () {
 }
+%> */
