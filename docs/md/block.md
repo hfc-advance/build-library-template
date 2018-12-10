@@ -5,7 +5,7 @@ block | 模块规范 | 崔海峰 | 崔海峰 | 崔海峰 |  | 3.4.5
 
 # 基本用法
 :::demo
-```javascript
+```html
 //! 推荐使用ES规范
 import {block} from '@qtt/qukanbridge'
 

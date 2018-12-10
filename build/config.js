@@ -11,7 +11,6 @@ exports.vueMarkdown = {
     MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence)
     return source
   },
-  highlight: (code) => { highlightCore.highlightAuto(code).value },
   use: [
     [MarkdownItContainer, 'demo', {
       validate: params => params.trim().match(/^demo\s*(.*)$/),
