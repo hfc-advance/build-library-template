@@ -4,6 +4,7 @@
 block | 模块规范 | 崔海峰 | 崔海峰 | 崔海峰 |  | 3.4.5
 
 # 基本用法
+:::demo
 ```javascript
 //! 推荐使用ES规范
 import {block} from '@qtt/qukanbridge'
@@ -11,3 +12,4 @@ import {block} from '@qtt/qukanbridge'
 //! 不支持ES规范，可使用CommonJS规范
 const block = require('@qtt/qukanbridge').block
 ```
+:::demo

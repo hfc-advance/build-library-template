@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import App from './app.vue'
 import router from './router.js'
+import DemoBox from './components/demobox.vue'
 import('./components/assets/style/base.styl')
 import('./components/assets/style/markdown.styl')
+
+Vue.component('demo-box', DemoBox)
 
 new Vue({
   id: 'app',
