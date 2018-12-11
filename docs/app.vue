@@ -1,13 +1,16 @@
 <template>
-  <div class="content-box">
-    <div class="flex bg-f relative-view">
-      <div class="menu-wrapper">
-        <Menu></Menu>
-      </div>
-      <!-- 1px border -->
-      <div class="menu-split-line"></div>
-      <div>
-        <router-view class="qk-markdown"></router-view>
+  <div>
+    <Header></Header>
+    <div class="content-box">
+      <div class="flex bg-f relative-view">
+        <div class="menu-wrapper">
+          <Menu></Menu>
+        </div>
+        <!-- 1px border -->
+        <div class="menu-split-line"></div>
+        <div>
+          <router-view class="qk-markdown"></router-view>
+        </div>
       </div>
     </div>
   </div>
@@ -15,9 +18,11 @@
 
 <script>
 import Menu from './components/layout/menu.vue'
+import Header from './components/layout/header.vue'
 export default {
   components: {
-    Menu
+    Menu,
+    Header
   },
   name: 'APP'
 }
