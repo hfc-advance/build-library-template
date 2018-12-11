@@ -131,7 +131,13 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new errorOverlayWebpackPlugin(),
-    new webpackbar()
+    new webpackbar(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      vue: {
+        preserveWhitespace: false
+      }
+    })
   ],
   devServer: {
     host: '0.0.0.0',

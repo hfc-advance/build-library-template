@@ -53,4 +53,15 @@ export let router = new VueRouter({
   routes
 })
 
+//? 第一个桥接为默认路由
+if (routes.length > 0) {
+  router.addRoutes([
+    {
+      path: '/',
+      name: 'Home',
+      redirect: routes[0].path
+    }
+  ])
+}
+
 export default router

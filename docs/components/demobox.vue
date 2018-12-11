@@ -5,8 +5,8 @@
     </div>
     <collapse-transition>
       <div class="at-component__code" v-show="isShow">
-        <slot name="source-code"></slot>
-        <span class="btn-copy" v-clipboard="$slots['source-code'][0] && $slots['source-code'][0].elm && $slots['source-code'][0].elm.innerText" @success="handleCopySuccess"><i class="icon icon-clipboard"></i></span>
+        <slot name="highlight"></slot>
+        <span class="btn-copy" v-clipboard="$slots['highlight'][0] && $slots['highlight'][0].elm && $slots['highlight'][0].elm.innerText" @success="handleCopySuccess"><i class="icon icon-clipboard"></i></span>
       </div>
     </collapse-transition>
     <a v-if="lang === 'en'" class="at-component__code-toggle" @click="isShow = !isShow">{{ isShow ? 'Hide Code' : 'Show Code' }}</a>
