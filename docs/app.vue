@@ -14,8 +14,8 @@
           </div>
           <!-- 1px border -->
           <div class="menu-split-line"></div>
-          <div>
-            <router-view class="qk-markdown"></router-view>
+          <div class="qk-markdown">
+            <router-wrapper></router-wrapper>
           </div>
         </div>
       </div>
@@ -26,11 +26,13 @@
 <script>
 import Menu from './components/layout/menu.vue'
 import Header from './components/layout/header.vue'
+import RouterWrapper from './components/router-wrapper.vue'
 export default {
   name: 'APP',
   components: {
     Menu,
-    Header
+    Header,
+    RouterWrapper
   },
   computed: {
     //? 是否调试模式

@@ -11,3 +11,10 @@ import {{TplBracketStart}} {{bridgeName}} {{TplBracketEnd}} from '@qtt/qukanbrid
 //! 不支持ES规范，可使用CommonJS规范
 const {{bridgeName}} = require('@qtt/qukanbridge').{{bridgeName}}
 ```
+
+<!-- 默认调试，不带任何参数 -->
+:::debugger
+```javascript
+  {{bridgeName}}()
+```
+:::

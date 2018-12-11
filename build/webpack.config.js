@@ -65,8 +65,7 @@ module.exports = {
               }
             }
           },
-        ],
-        include: [resolve('../src/'), resolve('../docs/')]
+        ]
       },
       {
         test: /\.md$/,

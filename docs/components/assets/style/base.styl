@@ -49,6 +49,20 @@ a
   .debugger-box
     display: none
 
+.slide-fade-enter-active
+  transition all .3s ease
+.slide-fade-leave-active
+  transition all .3s ease
+.slide-fade-enter
+/* .slide-fade-leave-active below version 2.1.8 */
+  transform translate3d(0, -10px, 0)
+  opacity 0
+.slide-fade-leave-to
+  opacity 0
+
+.text-center
+  text-align: center
+
 /* 调试模式 */
 .debugger-router-wrapper
   > *:not(.debugger-box)
