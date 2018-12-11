@@ -11,6 +11,15 @@ export const docs = [
       bridgeVersionAndroid: '2.1.1',
       bridgeVersionIOS: '3.4.5'
     },
+    {
+      bridgeName: 'result',
+      bridgeEffect: 'jfldajflkd',
+      bridgeH5Man: 'sjfklasdjfl',
+      bridgeNativeAndroidMan: 'fdjlajfslkd',
+      bridgeNativeIOSMan: 'fjdlajfdkl',
+      bridgeVersionAndroid: '1.1.2',
+      bridgeVersionIOS: '2.2.2'
+    },
   /* @init<%
     {
       bridgeName: '${bridgeName}',

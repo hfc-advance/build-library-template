@@ -11,3 +11,15 @@ import { jfdlasjdlfk } from '@qtt/qukanbridge'
 //! 不支持ES规范，可使用CommonJS规范
 const jfdlasjdlfk = require('@qtt/qukanbridge').jfdlasjdlfk
 ```
+
+:::debugger
+```javascript
+npm run dev
+```
+:::
+
+:::debugger
+```javascript
+npm run dev
+```
+:::

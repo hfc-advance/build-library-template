@@ -1,18 +1,25 @@
 <template>
   <div>
-    <Header></Header>
-    <div class="content-box">
-      <div class="flex bg-f relative-view">
-        <div class="menu-wrapper">
-          <Menu></Menu>
-        </div>
-        <!-- 1px border -->
-        <div class="menu-split-line"></div>
-        <div>
-          <router-view class="qk-markdown"></router-view>
+    <!-- 调试模式 -->
+    <template v-if="isDebugger">
+       <router-view class="debugger-router-wrapper"></router-view>
+    </template>
+    <!-- 文档模式 -->
+    <template v-else>
+      <Header></Header>
+      <div class="content-box">
+        <div class="flex bg-f relative-view">
+          <div class="menu-wrapper">
+            <Menu></Menu>
+          </div>
+          <!-- 1px border -->
+          <div class="menu-split-line"></div>
+          <div>
+            <router-view class="qk-markdown"></router-view>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -20,11 +27,17 @@
 import Menu from './components/layout/menu.vue'
 import Header from './components/layout/header.vue'
 export default {
+  name: 'APP',
   components: {
     Menu,
     Header
   },
-  name: 'APP'
+  computed: {
+    //? 是否调试模式
+    isDebugger () {
+      return /^(\/debugger)/.test(this.$route.path)
+    }
+  }
 }
 </script>
 

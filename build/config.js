@@ -76,6 +76,20 @@ exports.vueMarkdown = {
         // closing tag
         return '</div></demo-box>'
       }
+    }],
+    //? 调试
+    [MarkdownItContainer, 'debugger', {
+      validate: params => params.trim().match(/^debugger\s*(.*)$/),
+      render: (tokens, idx) => {
+        if (tokens[idx].nesting === 1) {
+          return `<debugger-box>
+                    <div slot="content">${tokens[idx + 1].content}</div>
+                    <div slot="debugger">`
+        }
+
+        // closing tag
+        return '</div></debugger-box>'
+      }
     }]
   ],
   preventExtract: true
