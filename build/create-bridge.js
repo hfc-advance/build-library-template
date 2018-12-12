@@ -21,7 +21,7 @@ async function lanuch () {
       name: 'bridgeName',
       message: '请输入bridge名字(英文):',
       validate: function (str) {
-        return /^[a-zA-Z]*$/.test(str)
+        return /^[a-zA-Z_]*$/.test(str)
       }
     },
     {
