@@ -1,3 +1,4 @@
+const miniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let defaultCssLoader = [
   {
@@ -32,12 +33,8 @@ let createCssLoader = (type = 'css', options = {}) => {
       'scss-loader'
     ]
   }
-  return [
-    'cache-loader',
-    'style-loader',
-    ...defaultCssLoader,
-    ...currentLoaders
-  ]
+  let result = extract ? [ miniCssExtractPlugin.loader, ...defaultCssLoader, ...currentLoaders ] : [ 'cache-loader', 'style-loader', ...defaultCssLoader, ...currentLoaders ]
+  return result
 };
 
 module.exports = {

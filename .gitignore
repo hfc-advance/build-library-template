@@ -38,6 +38,7 @@ package-lock.json
 jspm_packages/
 dist/
 .cache-loader/
+server/
 
 # TypeScript v1 declaration files
 typings/

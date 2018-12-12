@@ -1,7 +1,7 @@
 const fs = require('fs');
 const bluebird = require('bluebird').promisifyAll(fs);
 const Handlebars = require('handlebars');
-
+const address = require('address');
 
 //? 自定义模板编译
 exports.compile = (answers, fileStr) => {
@@ -51,4 +51,10 @@ exports.wrapCustomClass = function (render) {
  */
 exports.convertHtml = function (str) {
   return str.replace(/(&#x)(\w{4});/gi, $0 => String.fromCharCode(parseInt(encodeURIComponent($0).replace(/(%26%23x)(\w{4})(%3B)/g, '$2'), 16)))
+}
+
+exports.getIp = () => {
+  let ip = address.ip()
+  getIp = () => ip
+  return ip
 }

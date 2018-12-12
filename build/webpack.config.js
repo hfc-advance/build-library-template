@@ -1,32 +1,23 @@
 
 const path = require('path');
 const htmlPlugin = require('html-webpack-plugin');
-const friendlyErrorPlugin = require("friendly-errors-webpack-plugin");
-const chalk = require("chalk");
 const webpack = require('webpack');
-const errorOverlayWebpackPlugin = require("error-overlay-webpack-plugin");
 const webpackbar = require("webpackbar");
 const eslintFrienylyFormate = require("eslint-friendly-formatter");
 const loader = require("./loader.js");
 const vueMarkdownConfig = require('./config.js').vueMarkdown
 let resolve = (url) => path.resolve(__dirname, url)
 let cssLoader = ['css', 'styl', 'scss'].map(item => {
+  let options = process.env.NODE_ENV === 'development' ? {} : { extract: true }
   return {
     test: new RegExp(`\.${item}$`),
-    use: loader.createCssLoader(item, {})
+    use: loader.createCssLoader(item, options)
   };
 });
 module.exports = {
   context: resolve('./'),
-  mode: 'development',
-  cache: true,
   entry: {
     index: resolve('../docs/index.js')
-  },
-  output: {
-    path: resolve('../server'),
-    filename: '[name][hash:6].js',
-    chunkFilename: '[name].async.[hash:6].js'
   },
   module: {
     rules: [
@@ -111,25 +102,6 @@ module.exports = {
       filename: 'index.html',
       inject: true
     }),
-    new friendlyErrorPlugin({
-      compilationSuccessInfo: {
-        messages: [`You application is running here http://0.0.0.0:9909`]
-      },
-      onErrors: function (severity, errors) {
-        let [ error ] = (errors || []);
-        if (severity === 'error') {
-          console.log(chalk.red(`${error.name}:at${error.file}`));;
-        } else {
-          console.log(chalk.yellow(`${error.name}:at${error.file}`));;
-        }
-      },
-      clearConsole: true,
-      additionalFormatters: [],
-      additionalTransformers: []
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new errorOverlayWebpackPlugin(),
     new webpackbar(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
@@ -138,18 +110,6 @@ module.exports = {
       }
     })
   ],
-  devServer: {
-    host: '0.0.0.0',
-    port: 9909,
-    hot: true,
-    overlay: {
-      warnings: true,
-      errors: true
-    },
-    contentBase: resolve('../server'),
-    quiet: true
-  },
-  devtool: 'cheap-module-eval-source-map',
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
